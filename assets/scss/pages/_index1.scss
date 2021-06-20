@@ -1,0 +1,80 @@
+.global-wrapper {
+    $color-primary: orangered;
+
+    @include flexbox(flex);
+
+    width: 50%;
+    background-color: $color-primary;
+    height: 300px;
+    animation-name: fire;
+    padding: $spacing-default;
+
+    &:hover {
+        opacity: 1;
+        color: $color-secondary;
+        border: $border;
+    }
+}
+
+.wrapper {
+    width: 50%;
+    .badge {
+        $color-error: rgb(117, 47, 47);
+        width: 30px;
+        height: 30px;
+        color: $color-error;
+        @include flexbox(flex-start, flex-end);
+        @include border();
+    }
+}
+
+.wrapper-secondary {
+    width: 90%;
+    .wrapper-inner {
+        > h1 {
+            color: $color-primary;
+            &:hover {
+                color: $color-error;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+            }
+        }
+    }
+}
+
+.duckduckgo {
+    width: 60%;
+
+    &__image {
+        width: 50px;
+    }
+
+    &__center {
+        display: block;
+        @extend .duckduckgo;
+
+        &__heading {
+            color: $color-tertiary;
+            font-size: 50px;
+            margin-right: 50px;
+            padding: 20px;
+
+            &--bg-color {
+                background-color: $color-warning;
+            }
+        }
+    }
+}
+
+.error {
+    border: 1px #f00;
+    background-color: #fdd;
+
+    &--serious {
+        @extend .error;
+        border-width: 3px;
+    }
+}
